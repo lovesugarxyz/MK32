@@ -108,8 +108,6 @@ extern "C" void key_reports(void *pvParameters) {
 	uint8_t past_report[REPORT_LEN] = { 0 };
 	uint8_t report_state[REPORT_LEN];
 
-
-
 	while (1) {
 		memcpy(report_state, check_key_state(layouts[current_layout]),
 				sizeof report_state);
@@ -170,7 +168,6 @@ extern "C" void encoder_report(void *pvParameters) {
 			r_encoder_command(encoder_state, encoder_map[current_layout]);
 			past_encoder_state = encoder_state;
 		}
-
 	}
 }
 
