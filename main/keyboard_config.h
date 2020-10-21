@@ -16,7 +16,7 @@
 #include "oled_tasks.h"
 
 #define MODULE_ID "LOLIN 32"
-#define GATTS_TAG "MK32 V3.0" // The device's name
+#define GATTS_TAG "CoderJ_KeyBoard" // The device's name
 #define MAX_BT_DEVICENAME_LENGTH 40
 
 #define MASTER  // undefine if you are not flashing the main controller
@@ -58,7 +58,7 @@
 #define BATT_PIN ADC1_CHANNEL_7 //gpio pin 35, refer to the esp32 before modifying
 
 //deep sleep parameters, mind that reconnecting after deep sleep might take a minute or two
-#define SLEEP_MINS 45 // undefine if you do not need deep sleep, otherwise define number of minutes for deepsleep
+#define SLEEP_MINS 5 // undefine if you do not need deep sleep, otherwise define number of minutes for deepsleep
 
 /*
  *---------------------------- Everything below here should not be modified for standard usage----------------------
