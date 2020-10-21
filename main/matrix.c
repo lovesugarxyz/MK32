@@ -41,12 +41,20 @@ const gpio_num_t MATRIX_COLS_PINS[] = {GPIO_NUM_0,
 // matrix states
 uint8_t MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS] = { 0 };
 uint8_t PREV_MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS] = { 0 };
+
+#ifndef MASTER
 uint8_t SLAVE_MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS] = { 0 };
+#endif
 
 uint32_t lastDebounceTime = 0;
 
+#ifdef MASTER
+uint8_t (*matrix_states[])[MATRIX_ROWS][MATRIX_COLS] = { &MATRIX_STATE,
+		&MATRIX_STATE,};
+#else
 uint8_t (*matrix_states[])[MATRIX_ROWS][MATRIX_COLS] = { &MATRIX_STATE,
 		&SLAVE_MATRIX_STATE, };
+#endif
 
 //used for debouncing
 static uint32_t millis() {
@@ -136,7 +144,7 @@ void matrix_setup(void) {
 	for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
 
 		gpio_pad_select_gpio(MATRIX_ROWS_PINS[row]);
-		gpio_set_direction(MATRIX_ROWS_PINS[row], GPIO_MODE_INPUT_OUTPUT);
+		gpio_set_direction(MATRIX_ROWS_PINS[row], GPIO_MODE_INPUT);
 		gpio_set_drive_capability(MATRIX_ROWS_PINS[row], GPIO_DRIVE_CAP_0);
 		gpio_set_level(MATRIX_ROWS_PINS[row], 0);
 

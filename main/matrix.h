@@ -19,8 +19,11 @@
 extern "C" {
 #endif
 
+#ifdef MASTER
 extern uint8_t MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS];
+#else
 extern uint8_t SLAVE_MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS];
+#endif
 extern uint8_t (*matrix_states[])[MATRIX_ROWS][MATRIX_COLS];
 
 /*
