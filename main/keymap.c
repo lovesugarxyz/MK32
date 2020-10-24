@@ -159,13 +159,13 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 	// }; 
 
 	uint16_t _default84[MATRIX_ROWS][KEYMAP_COLS] = {
-	{KC_PAUS, KC_Q,   KC_W,    KC_E,    KC_R,   KC_U,  KC_I,    KC_O,    KC_P, KC_LSFT, KC_NONE},
-	{KC_LGUI, KC_TAB, KC_CAPS, KC_F3,    KC_T,  KC_Y,  KC_RBRC, KC_F7, KC_LBRC, KC_RSFT, KC_BSPC},
+	{KC_PAUS, KC_Q,   KC_W,    KC_E,    KC_R,   KC_U,  KC_I,    KC_O,    KC_P, KC_RSFT, KC_NONE},
+	{KC_LALT, KC_TAB, KC_CAPS, KC_F3,    KC_T,  KC_Y,  KC_RBRC, KC_F7, KC_LBRC, KC_LSFT, KC_BSPC},
 	{KC_NONE, KC_A,   KC_S,    KC_D,    KC_F,   KC_J,  KC_K,     KC_L,  KC_SCLN, KC_RGUI, KC_BSLS},
-	{KC_UP,  KC_ESC, KC_SPC,   KC_F4,   KC_G,  KC_H,   KC_F6, KC_NONE,  KC_QUOT, KC_LALT, KC_F11},
+	{KC_UP,  KC_ESC, KC_SPC,   KC_F4,   KC_G,  KC_H,   KC_F6, KC_NONE,  KC_QUOT, KC_LGUI, KC_F11},
 	{KC_RCTL,  KC_Z, KC_X,     KC_C,   KC_V,    KC_M,  KC_COMM, KC_DOT,  KC_NONE, KC_NONE, KC_ENT},
 	{KC_LEFT,  KC_RGHT,KC_DOWN, KC_NONE, KC_B,    KC_N, KC_NONE, KC_DOT,  KC_SLSH, KC_RALT, KC_F12},
-	{KC_LCTL,  KC_GRV, KC_F1,  KC_F2,    KC_5,   KC_6, KC_EQL,  KC_F8,  KC_NONE,   KC_DEL, KC_F9},
+	{KC_LCTL,  KC_GRV, KC_F1,  KC_F2,    KC_5,   KC_6, KC_EQL,  KC_F8,  KC_MINUS,   KC_DEL, KC_F9},
 	{KC_F5,    KC_1,   KC_2,    KC_3,    KC_4,   KC_7, KC_8,    KC_9,     KC_0,  KC_NONE,  KC_F10}
 };
 

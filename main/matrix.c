@@ -37,6 +37,10 @@ const gpio_num_t MATRIX_ROWS_PINS[] = { GPIO_NUM_22, GPIO_NUM_19, GPIO_NUM_23,
 		GPIO_NUM_18, GPIO_NUM_5, GPIO_NUM_17,GPIO_NUM_16, GPIO_NUM_4};
 const gpio_num_t MATRIX_COLS_PINS[] = {GPIO_NUM_0,
 		GPIO_NUM_2, GPIO_NUM_15, GPIO_NUM_13, GPIO_NUM_12, GPIO_NUM_14, GPIO_NUM_27, GPIO_NUM_26, GPIO_NUM_25, GPIO_NUM_33, GPIO_NUM_32};
+// const gpio_num_t MATRIX_ROWS_PINS[] = 
+// {GPIO_NUM_4, GPIO_NUM_5, GPIO_NUM_12, GPIO_NUM_13, GPIO_NUM_14, GPIO_NUM_15, GPIO_NUM_34, GPIO_NUM_39};
+// const gpio_num_t MATRIX_COLS_PINS[] = 
+// {GPIO_NUM_0, GPIO_NUM_2, GPIO_NUM_16, GPIO_NUM_17, GPIO_NUM_18, GPIO_NUM_23, GPIO_NUM_25, GPIO_NUM_26, GPIO_NUM_27, GPIO_NUM_32, GPIO_NUM_33};
 
 // matrix states
 uint8_t MATRIX_STATE[MATRIX_ROWS][MATRIX_COLS] = { 0 };
@@ -140,11 +144,10 @@ void matrix_setup(void) {
 				gpio_get_level(MATRIX_COLS_PINS[col]));
 	}
 
-	// Initializing rows
 	for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
 
 		gpio_pad_select_gpio(MATRIX_ROWS_PINS[row]);
-		gpio_set_direction(MATRIX_ROWS_PINS[row], GPIO_MODE_INPUT);
+		gpio_set_direction(MATRIX_ROWS_PINS[row], GPIO_MODE_INPUT_OUTPUT);
 		gpio_set_drive_capability(MATRIX_ROWS_PINS[row], GPIO_DRIVE_CAP_0);
 		gpio_set_level(MATRIX_ROWS_PINS[row], 0);
 
@@ -194,6 +197,7 @@ void scan_matrix(void) {
 
 				if (MATRIX_STATE[row][col] != curState) {
 					MATRIX_STATE[row][col] = curState;
+					ESP_LOGI(GPIO_TAG,"row %d col %d pressed state %d",MATRIX_ROWS_PINS[row],MATRIX_COLS_PINS[col], curState);
 				}
 
 			}
@@ -205,8 +209,7 @@ void scan_matrix(void) {
 #ifdef ROW2COL
 	// Setting row pin as low, and checking if the input of a column pin changes.
 	for(uint8_t row=0; row < MATRIX_ROWS; row++) {
-		gpio_set_level(MATRIX_ROWS_PINS[row], 0);
-
+		gpio_set_level(MATRIX_ROWS_PINS[row], 1);
 		for(uint8_t col=0; col <MATRIX_COLS; col++) {
 
 			curState = gpio_get_level(MATRIX_COLS_PINS[col]);
@@ -218,6 +221,7 @@ void scan_matrix(void) {
 
 				if( MATRIX_STATE[row][col] != curState) {
 					MATRIX_STATE[row][col] = curState;
+					ESP_LOGI(GPIO_TAG,"row %d col %d pressed state %d",MATRIX_ROWS_PINS[row],MATRIX_COLS_PINS[col], curState);
 				}
 
 			}

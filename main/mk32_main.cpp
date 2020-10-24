@@ -109,6 +109,7 @@ extern "C" void key_reports(void *pvParameters) {
 	uint8_t report_state[REPORT_LEN];
 
 	while (1) {
+		// check_key_state will call scan matrix
 		memcpy(report_state, check_key_state(layouts[current_layout]),
 				sizeof report_state);
 
@@ -188,6 +189,7 @@ extern "C" void slave_encoder_report(void *pvParameters) {
 	}
 }
 
+#ifdef SLAVE
 //Function for sending out the modified matrix
 extern "C" void slave_scan(void *pvParameters) {
 
@@ -204,7 +206,9 @@ extern "C" void slave_scan(void *pvParameters) {
 		}
 	}
 }
+#endif
 
+#ifdef SPLIT_MASTER
 //Update the matrix state via reports recieved by espnow
 extern "C" void espnow_update_matrix(void *pvParameters) {
 
@@ -216,6 +220,8 @@ extern "C" void espnow_update_matrix(void *pvParameters) {
 		}
 	}
 }
+#endif
+
 //what to do after waking from deep sleep, doesn't seem to work after updating esp-idf
 //extern "C" void RTC_IRAM_ATTR esp_wake_deep_sleep(void) {
 //    rtc_matrix_deinit();;
