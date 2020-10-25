@@ -95,6 +95,7 @@ void rtc_matrix_deinit(void) {
 void rtc_matrix_setup(void) {
 	uint64_t rtc_mask = 0;
 
+#ifdef COL2ROW
 	// Initializing columns
 	for (uint8_t col = 0; col < MATRIX_COLS; col++) {
 
@@ -127,6 +128,42 @@ void rtc_matrix_setup(void) {
 		}
 		esp_sleep_enable_ext1_wakeup(rtc_mask, ESP_EXT1_WAKEUP_ANY_HIGH);
 	}
+#endif
+#ifdef ROW2COL
+	// Initializing row
+	for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
+
+		if (rtc_gpio_is_valid_gpio(MATRIX_ROWS_PINS[row]) == 1) {
+			rtc_gpio_init((MATRIX_ROWS_PINS[row]));
+			rtc_gpio_set_direction(MATRIX_ROWS_PINS[row],
+					RTC_GPIO_MODE_INPUT_OUTPUT);
+			rtc_gpio_set_level(MATRIX_ROWS_PINS[row], 1);
+
+			ESP_LOGI(GPIO_TAG,"%d is level %d", MATRIX_ROWS_PINS[row],
+					gpio_get_level(MATRIX_ROWS_PINS[row]));
+		}
+	}
+
+	// Initializing col
+	for (uint8_t col = 0; col < MATRIX_COLS; col++) {
+
+		if (rtc_gpio_is_valid_gpio(MATRIX_COLS_PINS[col]) == 1) {
+			rtc_gpio_init((MATRIX_COLS_PINS[col]));
+			rtc_gpio_set_direction(MATRIX_COLS_PINS[col],
+					RTC_GPIO_MODE_INPUT_OUTPUT);
+			rtc_gpio_set_drive_capability(MATRIX_COLS_PINS[col],
+					GPIO_DRIVE_CAP_0);
+			rtc_gpio_set_level(MATRIX_COLS_PINS[col], 0);
+			rtc_gpio_wakeup_enable(MATRIX_COLS_PINS[col], GPIO_INTR_HIGH_LEVEL);
+			SET_BIT(rtc_mask, MATRIX_COLS_PINS[col]);
+
+			ESP_LOGI(GPIO_TAG,"%d is level %d", MATRIX_COLS_PINS[col],
+					gpio_get_level(MATRIX_COLS_PINS[col]));
+		}
+		esp_sleep_enable_ext1_wakeup(rtc_mask, ESP_EXT1_WAKEUP_ANY_HIGH);
+	}
+#endif
+
 }
 
 // Initializing matrix pins
