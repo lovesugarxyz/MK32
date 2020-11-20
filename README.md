@@ -4,6 +4,7 @@ MK32 is a BLE keyboard firmware for ESP32 Microcontrollers,designed to be relati
 Please refer to the [MK32 Wiki page](https://github.com/Galzai/MK32/wiki) for information about building your own keyboard.
 Also note that this repository is not heavily maintained.
 
+魔蛋68
 ### Many thanks to:
 - Benjamin Aigner for his work on implementing HID over BLE on the ESP32: https://github.com/asterics/esp32_mouse_keyboard.
 - Neil Kolban for his great contributions to the ESP32 SW (in particular the Bluetooth support): https://github.com/nkolban
