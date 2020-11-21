@@ -167,7 +167,7 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 };
 
  //Create an array that points to the various keymaps
-uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_default68,&_default68
+uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_default68,&_default68,&_default68
 		};
 
 uint8_t current_layout = 0;
