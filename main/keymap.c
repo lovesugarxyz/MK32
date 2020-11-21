@@ -158,7 +158,7 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 	// 	{KC_LCTL,  KC_LALT,KC_LGUI,KC_SPC,  KC_NONE, KC_NONE, KC_RALT,   KC_RGUI,KC_RCTL, KC_NONE, KC_NONE,  KC_NONE, KC_NONE, KC_LEFT, KC_DOWN,  KC_RGHT}
 	// }; 
 
-	uint16_t _default68[MATRIX_ROWS][KEYMAP_COLS] = {
+	uint16_t _default84[MATRIX_ROWS][KEYMAP_COLS] = {
 	{KC_ESC,      KC_Q,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,      KC_7,      KC_8,     KC_9,    KC_0,      KC_MINUS,    KC_EQUAL,    KC_BSPACE},
 	{KC_TAB,      KC_A,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,      KC_U,      KC_I,     KC_O,    KC_P,      KC_LBRACKET, KC_RBRACKET, KC_BSLASH},
 	{KC_CAPSLOCK, KC_Z,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,      KC_J,      KC_K,     KC_L,    KC_SCOLON, KC_QUOTE,    KC_LEFT,     KC_ENTER},
@@ -167,7 +167,7 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 };
 
  //Create an array that points to the various keymaps
-uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_default68,&_default868,&_default68
+uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_default84,&_default84,&_default84
 		};
 
 uint8_t current_layout = 0;
