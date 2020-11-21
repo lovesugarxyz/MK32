@@ -13,18 +13,16 @@
 
 // Keymaps are designed to be relatively interchangeable with QMK
 enum custom_keycodes {
-	    QWERTY, NUM,
-    PLUGINS, default68, defaultfn
+	    DEFAULT68, DEFAULTFN
 };
 
 //Set these for each layer and use when layers are needed in a hold-to use layer
 enum layer_holds {
-	    QWERTY_H = LAYER_HOLD_BASE_VAL,NUM_H,FUNCS_H,DEFAULT68_H,DEFAULTFN_H
+	    DEFAULT68_H = LAYER_HOLD_BASE_VAL,DEFAULTFN_H
 };
 
 // array to hold names of layouts for oled
-char default_layout_names[LAYERS][MAX_LAYOUT_NAME_LENGTH] = { "QWERTY", "NUM",
-		  "Plugins","DEFAULT68","DEFAULTFN",
+char default_layout_names[LAYERS][MAX_LAYOUT_NAME_LENGTH] = { "DEFAULT68","DEFAULTFN",
 		};
 
 /* select a keycode for your macro
@@ -158,14 +156,14 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 	// 	{KC_LCTL,  KC_LALT,KC_LGUI,KC_SPC,  KC_NONE, KC_NONE, KC_RALT,   KC_RGUI,KC_RCTL, KC_NONE, KC_NONE,  KC_NONE, KC_NONE, KC_LEFT, KC_DOWN,  KC_RGHT}
 	// }; 
 
-	uint16_t _default68[MATRIX_ROWS][KEYMAP_COLS] = {
+	uint16_t _DEFAULT68[MATRIX_ROWS][KEYMAP_COLS] = {
 	{KC_ESC,      KC_Q,    KC_2,    KC_3,    KC_4,    KC_5,     KC_6,      KC_7,      KC_8,     KC_9,    KC_0,      KC_MINUS,    KC_EQUAL,    KC_BSPACE},
 	{KC_TAB,      KC_A,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,      KC_U,      KC_I,     KC_O,    KC_P,      KC_LBRACKET, KC_RBRACKET, KC_BSLASH},
 	{KC_CAPSLOCK, KC_Z,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,      KC_J,      KC_K,     KC_L,    KC_SCOLON, KC_QUOTE,    KC_LEFT,     KC_ENTER},
 	{KC_LSHIFT,   KC_1,    KC_X,    KC_C,    KC_V,    KC_B,     KC_N,      KC_M,      KC_COMMA, KC_DOT,  KC_SLASH,  KC_UP,       KC_DELETE,   KC_RSHIFT},
 	{KC_LCTL,     KC_LGUI, KC_LALT, KC_NONE, KC_NONE, KC_SPACE, KC_INSERT, KC_PGDOWN, KC_RALT,  DEFAULTFN_H,   KC_RIGHT,  KC_DOWN,     KC_PGUP,     KC_RCTRL}
 };
-	uint16_t _defaultfn[MATRIX_ROWS][KEYMAP_COLS] = {
+	uint16_t _DEFAULTFN[MATRIX_ROWS][KEYMAP_COLS] = {
 	{KC_GRV,      KC_Q,    KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_F6,      KC_F7,     KC_F8,    KC_F9,   KC_F10,    KC_F11,      KC_F12,      KC_BSPACE},
 	{KC_TAB,      KC_A,    KC_W,    KC_E,    KC_R,    KC_T,     KC_Y,       KC_U,      KC_I,     KC_O,    KC_P,      KC_LBRACKET, KC_RBRACKET, KC_BSLASH},
 	{KC_CAPSLOCK, KC_Z,    KC_S,    KC_D,    KC_F,    KC_G,     KC_H,       KC_J,      KC_K,     KC_L,    KC_SCOLON, KC_QUOTE,    KC_LEFT,     KC_ENTER},
@@ -174,7 +172,7 @@ uint16_t default_slave_encoder_map[LAYERS][ENCODER_SIZE] = {
 };
 
  //Create an array that points to the various keymaps
-uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_default68,&_defaultfn
+uint16_t (*default_layouts[])[MATRIX_ROWS][KEYMAP_COLS] = { &_DEFAULT68,&_DEFAULTFN
 		};
 
 uint8_t current_layout = 0;
