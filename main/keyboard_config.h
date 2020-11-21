@@ -35,7 +35,7 @@
 
 // Select diode direction
 // #define COL2ROW
-#define COL2ROW
+#define ROW2COL
 
 //Encoder definitions
 // #define R_ENCODER // undefine if no rotary encoder is used
