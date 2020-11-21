@@ -19,7 +19,7 @@ enum custom_keycodes {
 
 //Set these for each layer and use when layers are needed in a hold-to use layer
 enum layer_holds {
-	QWERTY_H =  LAYER_HOLD_BASE_VAL,NUM_H,FUNCS_H
+	NUM_H =  LAYER_HOLD_BASE_VAL,NUM_H,FUNCS_H
 };
 
 // array to hold names of layouts for oled
