@@ -27,8 +27,8 @@
 
 //Define matrix
 #define KEYPADS 1 // intended in order to create a Multiple keypad split boards
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 11 // For split keyboards, define columns for one side only.
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 14 // For split keyboards, define columns for one side only.
 
 //#define NKRO // does not work on Android and iOS!,  we can get 18KRO on those
 #define LAYERS 3 // number of layers defined
