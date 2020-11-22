@@ -16,7 +16,7 @@
 #include "oled_tasks.h"
 
 #define MODULE_ID "LOLIN 32"
-#define GATTS_TAG "CoderJ_KeyBoard" // The device's name
+#define GATTS_TAG "gg_KeyBoard" // The device's name
 #define MAX_BT_DEVICENAME_LENGTH 40
 
 #define MASTER  // undefine if you are not flashing the main controller
