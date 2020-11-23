@@ -16,7 +16,7 @@
 #include "oled_tasks.h"
 
 #define MODULE_ID "LOLIN 32"
-#define GATTS_TAG "gg_KeyBoard" // The device's name
+#define GATTS_TAG "lovesKB" // The device's name
 #define MAX_BT_DEVICENAME_LENGTH 40
 
 #define MASTER  // undefine if you are not flashing the main controller
@@ -27,15 +27,15 @@
 
 //Define matrix
 #define KEYPADS 1 // intended in order to create a Multiple keypad split boards
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 11 // For split keyboards, define columns for one side only.
+#define MATRIX_ROWS 5
+#define MATRIX_COLS 14 // For split keyboards, define columns for one side only.
 
 //#define NKRO // does not work on Android and iOS!,  we can get 18KRO on those
 #define LAYERS 3 // number of layers defined
 
 // Select diode direction
 // #define COL2ROW
-#define ROW2COl
+#define ROW2COL
 
 //Encoder definitions
 // #define R_ENCODER // undefine if no rotary encoder is used
